@@ -1,0 +1,67 @@
+## Model List
+
+### User Model
+
+Stores information about system users such as Admin and Pharmacy Owners.
+
+| Attribute | Description                      |
+| --------- | -------------------------------- |
+| userId    | Unique user ID                   |
+| username  | Username for login               |
+| password  | User password                    |
+| role      | User role (Admin/Pharmacy Owner) |
+| email     | User email address               |
+
+### Pharmacy Model
+
+Stores pharmacy details.
+
+| Attribute     | Description         |
+| ------------- | ------------------- |
+| pharmacyId    | Unique pharmacy ID  |
+| pharmacyName  | Pharmacy name       |
+| address       | Pharmacy location   |
+| contactNumber | Contact number      |
+| ownerName     | Pharmacy owner name |
+
+### Medicine Model
+
+Stores medicine information.
+
+| Attribute    | Description        |
+| ------------ | ------------------ |
+| medicineId   | Unique medicine ID |
+| medicineName | Medicine name      |
+| manufacturer | Manufacturer name  |
+| price        | Medicine price     |
+| expiryDate   | Expiry date        |
+
+### Stock Model
+
+Maintains medicine stock availability in pharmacies.
+
+| Attribute          | Description              |
+| ------------------ | ------------------------ |
+| stockId            | Unique stock ID          |
+| pharmacyId         | Pharmacy reference ID    |
+| medicineId         | Medicine reference ID    |
+| quantity           | Available quantity       |
+| availabilityStatus | Available / Out of Stock |
+
+### SearchHistory Model (Optional)
+
+Stores user search records.
+
+| Attribute    | Description             |
+| ------------ | ----------------------- |
+| searchId     | Unique search ID        |
+| userId       | User reference ID       |
+| medicineName | Searched medicine name  |
+| searchDate   | Date and time of search |
+
+## Model Relationships
+
+* One Pharmacy can have multiple Medicines.
+* One Medicine can be available in multiple Pharmacies.
+* Stock acts as a bridge between Pharmacy and Medicine.
+* Users can search for medicines and view availability details.
